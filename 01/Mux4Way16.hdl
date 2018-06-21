@@ -16,5 +16,37 @@ CHIP Mux4Way16 {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+    Mux(a=a[0], b=c[0], sel=sel[0], out=acout[0]);
+    Mux(a=a[1], b=c[1], sel=sel[0], out=acout[1]);
+    Mux(a=a[2], b=c[2], sel=sel[0], out=acout[2]);
+    Mux(a=a[3], b=c[3], sel=sel[0], out=acout[3]);
+    Mux(a=a[4], b=c[4], sel=sel[0], out=acout[4]);
+    Mux(a=a[5], b=c[5], sel=sel[0], out=acout[5]);
+    Mux(a=a[6], b=c[6], sel=sel[0], out=acout[6]);
+    Mux(a=a[7], b=c[7], sel=sel[0], out=acout[7]);
+    Mux(a=a[8], b=c[8], sel=sel[0], out=acout[8]);
+    Mux(a=a[9], b=c[9], sel=sel[0], out=acout[9]);
+    Mux(a=a[10], b=c[10], sel=sel[0], out=acout[10]);
+    Mux(a=a[11], b=c[11], sel=sel[0], out=acout[11]);
+    Mux(a=a[12], b=c[12], sel=sel[0], out=acout[12]);
+    Mux(a=a[13], b=c[13], sel=sel[0], out=acout[13]);
+    Mux(a=a[14], b=c[14], sel=sel[0], out=acout[14]);
+    Mux(a=a[15], b=c[15], sel=sel[0], out=acout[15]);
+
+    Mux(a=b[0], b=d[0], sel=sel[1], out=bdout[0]);
+    Mux(a=b[1], b=d[1], sel=sel[1], out=bdout[1]);
+    Mux(a=b[2], b=d[2], sel=sel[1], out=bdout[2]);
+    Mux(a=b[3], b=d[3], sel=sel[1], out=bdout[3]);
+    Mux(a=b[4], b=d[4], sel=sel[1], out=bdout[4]);
+    Mux(a=b[5], b=d[5], sel=sel[1], out=bdout[5]);
+    Mux(a=b[6], b=d[6], sel=sel[1], out=bdout[6]);
+    Mux(a=b[7], b=d[7], sel=sel[1], out=bdout[7]);
+    Mux(a=b[8], b=d[8], sel=sel[1], out=bdout[8]);
+    Mux(a=b[9], b=d[9], sel=sel[1], out=bdout[9]);
+    Mux(a=b[10], b=d[10], sel=sel[1], out=bdout[10]);
+    Mux(a=b[11], b=d[11], sel=sel[1], out=bdout[11]);
+    Mux(a=b[12], b=d[12], sel=sel[1], out=bdout[12]);
+    Mux(a=b[13], b=d[13], sel=sel[1], out=bdout[13]);
+    Mux(a=b[14], b=d[14], sel=sel[1], out=bdout[14]);
+    Mux(a=b[15], b=d[15], sel=sel[1], out=bdout[15]);
 }
