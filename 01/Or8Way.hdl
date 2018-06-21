@@ -6,6 +6,8 @@
 /**
  * 8-way Or: 
  * out = (in[0] or in[1] or ... or in[7])
+ *
+ * "Or" should just be called "Any" :-)
  */
 
 CHIP Or8Way {
@@ -13,5 +15,13 @@ CHIP Or8Way {
     OUT out;
 
     PARTS:
-    // Put your code here:
+    Or(a=in[0], b=in[1], out=c0);
+    Or(a=in[2], b=in[3], out=c2);
+    Or(a=in[4], b=in[5], out=c4);
+    Or(a=in[6], b=in[7], out=c6);
+
+    Or(a=c0, b=c2, out=d0);
+    Or(a=c4, b=c6, out=d4);
+
+    Or(a=d0, b=d4, out=out);
 }
