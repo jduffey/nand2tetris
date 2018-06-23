@@ -5,6 +5,9 @@
 
 /**
  * Computes the sum of three bits.
+ *
+ * Note: "full" means that it takes a carry as an input,
+ * whereas the half-adder takes only a and b.
  */
 
 CHIP FullAdder {
@@ -13,5 +16,10 @@ CHIP FullAdder {
         carry;   // Left bit of a + b + c
 
     PARTS:
-    // Put you code here:
+    // We should half-add a and b then half-add that sum and carry
+    // Visual aids really helped on this one :-|
+    HalfAdder(a=a, b=b, sum=sumab, carry=carryab);
+    HalfAdder(a=sumab, b=c, sum=sum, carry=sumabPlusc);
+    Or(a=carryab, b=sumabPlusc, out=carry);
+    
 }
