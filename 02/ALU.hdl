@@ -42,5 +42,30 @@ CHIP ALU {
         ng; // 1 if (out < 0),  0 otherwise
 
     PARTS:
-   // Put you code here:
+    // Provide for negation of inputs
+    Not16(in=x, out=notx);
+    Not16(in=y, out=noty);
+
+    // Mux negated x,y with the nx,ny flags; also provide all-zero/all-one functionality
+    Mux4Way16(a=x, b=false, c=notx, d=true, sel[0]=zx, sel[1]=nx, out=muxedx);
+    Mux4Way16(a=y, b=false, c=noty, d=true, sel[0]=zy, sel[1]=ny, out=muxedy);
+
+    // The 'and' and 'plus' functionality
+    Add16(a=muxedx, b=muxedy, out=addxy);
+    And16(a=muxedx, b=muxedy, out=andxy);
+    Mux16(a=andxy, b=addxy, sel=f, out=whetherandxyOraddxy);
+
+    // Negation of the 'add' or 'and' functiona
+    Not16(in=whetherandxyOraddxy, out=notwhetherandxyOraddxy);
+
+    Mux16(a=whetherandxyOraddxy, b=notwhetherandxyOraddxy, sel=no, out=out, out[0..7]=out1, out[8..15]=out2, out[15]=negatedwhole);
+
+    // Determine if outputs have ones
+    Or8Way(in=out1, out=any1);
+    Or8Way(in=out2, out=any2);
+    Or(a=any1, b=any2, out=any);
+    Xor(a=any, b=true, out=zr);
+
+    // Determine if output is negative (i.e. MSB is 1)
+    And(a=negatedwhole, b=true, out=ng);
 }
