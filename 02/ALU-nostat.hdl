@@ -50,7 +50,6 @@ CHIP ALU-nostat {
     Mux16(a=whetherxorNotx, b=false, sel=zx, out=whetherxisZeroed);
     Mux16(a=whetheryorNoty, b=false, sel=zy, out=whetheryisZeroed);
 
-
     // The 'and' and 'plus' functionality
     And16(a=whetherxisZeroed, b=whetheryisZeroed, out=xandy);
     Add16(a=whetherxisZeroed, b=whetheryisZeroed, out=xplusy);
